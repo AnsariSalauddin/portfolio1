@@ -19,6 +19,7 @@ body {
   font:
     16px/1.55 "Fira Code",
     monospace;
+  overflow-x: hidden;
 }
 .wrap {
   width: min(1024px, calc(100% - 48px));
@@ -31,6 +32,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 24px;
 }
 .brand {
   font-weight: 700;
@@ -39,6 +41,7 @@ body {
   display: inline-flex;
   gap: 8px;
   align-items: center;
+  white-space: nowrap;
 }
 .brand i,
 .logo-box i {
@@ -47,6 +50,7 @@ body {
   border: 3px solid var(--accent);
   display: inline-block;
   transform: rotate(45deg);
+  flex-shrink: 0;
 }
 nav {
   display: flex;
@@ -72,6 +76,9 @@ nav a:hover {
   border: 0;
   color: #fff;
   font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
 }
 .social-rail {
   position: fixed;
@@ -92,10 +99,9 @@ nav a:hover {
   color: var(--muted);
   text-decoration: none;
 }
-.social-rail a  {
+.social-rail a {
   color: var(--accent);
   font-size: larger;
- 
 }
 .hero {
   min-height: 430px;
@@ -103,9 +109,10 @@ nav a:hover {
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
   gap: 30px;
+  padding-top: 20px;
 }
 .hero h1 {
-  font-size: 31px;
+  font-size: clamp(22px, 3.2vw, 31px);
   line-height: 1.45;
   margin: 0 0 26px;
 }
@@ -126,60 +133,37 @@ p {
   font-size: 14px;
   font-weight: 500;
 }
-.button i{
+.button i {
   color: var(--accent);
 }
 .button:hover {
   background: #c778dd22;
 }
-/* .hero-art {
+.hero-art {
   height: 315px;
   position: relative;
-  border-bottom: 1px solid var(--accent);
-  overflow: hidden;
-} */
- /* .hero-art {
-  height: 315px;
-  position: relative;
-  border-bottom: 1px solid var(--accent);
-} */
- .hero-art {
-  height: 315px;
-  position: relative;
-  border-bottom: 1px solid var(--accent);
   overflow: visible;
+  max-width: 460px;
+  width: 100%;
+  justify-self: end;
 }
 .person {
   position: absolute;
-  background: linear-gradient(140deg, #15181d 5%, #4e5460 52%, #12141a 53%);
-  width: 195px;
-  height: 250px;
-  right: 70px;
+  width: min(453px, 90%);
+  height: 386px;
+  aspect-ratio: 368 / 308;
+  right: 0;
   bottom: 0;
-  clip-path: polygon(
-    22% 0,
-    63% 0,
-    73% 20%,
-    100% 35%,
-    86% 49%,
-    100% 100%,
-    0 100%,
-    12% 45%,
-    0 27%
-  );
-  display: grid;
-  place-content: center;
-  color: var(--accent);
-  font-size: 58px;
-  filter: contrast(0.9);
+  filter: grayscale(0.55) contrast(1.15) brightness(0.9);
+  display: block;
 }
 .logo-box {
   position: absolute;
-  top: 15px;
-  left: 58px;
+  top: 63px;
+  left: 18px;
   border: 1px solid var(--accent);
-  width: 52px;
-  height: 52px;
+  width: 80px;
+  height: 80px;
   display: grid;
   place-items: center;
 }
@@ -187,23 +171,27 @@ p {
 .dots {
   background-image: radial-gradient(var(--muted) 1px, transparent 1px);
   background-size: 13px 13px;
-  width: 85px;
-  height: 85px;
+  width: 70px;
+  height: 70px;
   position: absolute;
-  right: 5px;
-  top: 55px;
+  right: -12px;
+  top: 353px;
+  bottom: 20px;
+      width: 89px;
+    height: 89px;
 }
 .current {
-  
   position: absolute;
-  left: 0px;
-  bottom: -3px;
+  left: 62px;
+  bottom: 7px;
   transform: translateY(100%);
   border: 1px solid var(--muted);
-  padding: 8px 12px;
+  padding: 4px  12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   background: var(--bg);
+  width: min(366px, 100%);
+  z-index: 1;
 }
 .current span {
   color: var(--accent);
@@ -221,7 +209,7 @@ p {
 }
 .quote blockquote {
   margin: 0;
-  font-size: 20px;
+  font-size: clamp(16px, 2.4vw, 20px);
 }
 .quote cite {
   display: block;
@@ -232,6 +220,8 @@ p {
   padding: 8px 13px;
   font-style: normal;
   font-size: 14px;
+  background: var(--bg);
+  white-space: nowrap;
 }
 .section {
   margin-top: 145px;
@@ -241,16 +231,18 @@ p {
   align-items: center;
   gap: 16px;
   margin-bottom: 42px;
+  flex-wrap: wrap;
 }
 .section-heading h2 {
   margin: 0;
-  font-size: 28px;
+  font-size: clamp(22px, 3vw, 28px);
 }
 .section-heading span {
   height: 1px;
   flex: 1;
   max-width: 500px;
   background: var(--accent);
+  min-width: 24px;
 }
 .section-heading a {
   font-size: 14px;
@@ -258,14 +250,6 @@ p {
   text-decoration: none;
   margin-left: auto;
 }
-/* .projects {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-} */
-/* .card {
-  border: 1px solid var(--muted);
-} */
 .project-image {
   height: 175px;
   display: grid;
@@ -276,34 +260,6 @@ p {
   font-size: 45px;
   font-weight: 700;
 }
-/* .project-one {
-  background: repeating-linear-gradient(
-    45deg,
-    #20242a,
-    #20242a 10px,
-    #2e343d 10px,
-    #2e343d 20px
-  );
-  color: #a5ff82;
-} */
-/* .project-two {
-  background: linear-gradient(135deg, #5a1b86, #ed8b25);
-  color: #fff;
-} */
-/* .project-three {
-  background: #14171b;
-  color: var(--accent);
-} */
-/* .tags {
-  border-top: 1px solid var(--muted);
-  border-bottom: 1px solid var(--muted);
-  padding: 8px;
-  margin: 0;
-  font-size: 12px;
-} */
-/* .card-body {
-  padding: 14px;
-} */
 .card h3,
 .skill-cards h3,
 aside h3,
@@ -311,10 +267,6 @@ footer h3 {
   margin: 0;
   font-size: 16px;
 }
-/* .card-body p {
-  margin: 8px 0 16px;
-  font-size: 13px;
-} */
 .skills {
   background: #20242a;
   padding: 60px 0;
@@ -387,7 +339,6 @@ footer h3 {
 .about-art {
   min-height: 360px;
   position: relative;
-  border-bottom: 1px solid var(--accent);
 }
 .about-art .small {
   right: 30px;
@@ -412,7 +363,7 @@ footer h3 {
   border: 1px solid var(--muted);
   padding: 15px;
   height: max-content;
-  margin-top: 21px
+  margin-top: 21px;
 }
 .contacts aside a {
   display: block;
@@ -420,6 +371,7 @@ footer h3 {
   text-decoration: none;
   margin-top: 12px;
   font-size: 13px;
+  word-break: break-word;
 }
 footer {
   border-top: 1px solid var(--muted);
@@ -428,6 +380,13 @@ footer {
 .footer-grid {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+}
+.footer-grid-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 .email {
   color: var(--muted);
@@ -437,22 +396,144 @@ footer {
 }
 .footer-grid p {
   font-size: 13px;
-  
 }
 .media {
   font-size: large;
   text-align: center;
-  
 }
-.media a i{
+.media a i {
   color: var(--accent);
 }
-
 .copyright {
   text-align: center;
   margin: 42px 0 20px;
   font-size: 12px;
 }
+
+/* -------------- projects / cards -------------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.card {
+  border: 1px solid var(--muted);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.card-top {
+  height: 6px;
+  background: var(--accent);
+}
+.tags {
+  border-top: 1px solid var(--muted);
+  border-bottom: 1px solid var(--muted);
+  padding: 8px;
+  margin: 0;
+  font-size: 12px;
+  word-wrap: break-word;
+}
+.card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-body p {
+  margin: 8px 0 16px;
+  font-size: 13px;
+  flex: 1;
+}
+.card-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.card-buttons .button {
+  padding: 8px 12px;
+  font-size: 13px;
+  flex: 1;
+  text-align: center;
+  min-width: 110px;
+}
+.button.secondary {
+  border-color: var(--accent);
+  color: var(--muted);
+}
+.button.secondary:hover {
+  background: #c778dd22;
+  color: #fff;
+}
+.media a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.skill-cards h3 i {
+  color: var(--accent);
+  margin-right: 8px;
+  font-size: 14px;
+}
+.Message-Icon-Color a i {
+  color: var(--accent);
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+/* about section art */
+.person1 {
+  position: absolute;
+  width: min(299px, 80%);
+  height: auto;
+  aspect-ratio: 299 / 467;
+  right: 0;
+  bottom: 0;
+  filter: grayscale(0.55) contrast(1.15) brightness(0.9);
+  display: block;
+}
+.dot-grid-about-first {
+  background-image: radial-gradient(var(--muted) 1px, transparent 1px);
+  background-size: 13px 13px;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 62%;
+  top: 24%;
+  z-index: 1;
+}
+.dot-grid-about-second {
+  background-image: radial-gradient(var(--muted) 1px, transparent 1px);
+  background-size: 13px 13px;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 18%;
+  top: 88%;
+  z-index: 1;
+}
+
+/* -------------- tablet -------------- */
+@media (max-width: 1024px) {
+  .wrap {
+    width: min(100% - 40px, 1024px);
+  }
+  .skill-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skill-cards article:nth-child(3) {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* -------------- mobile -------------- */
 @media (max-width: 720px) {
   .social-rail {
     display: none;
@@ -476,6 +557,7 @@ footer {
     padding: 20px;
     flex-direction: column;
     align-items: flex-start;
+    border-bottom: 1px solid var(--line);
   }
   nav.open {
     display: flex;
@@ -489,13 +571,10 @@ footer {
   .skills-grid {
     grid-template-columns: 1fr;
   }
-  /* .hero {
-    padding-top: 45px;
-    gap: 60px;
-  } */
-   .hero {
-  padding-bottom: 40px; /* current badge ke liye jagah */
-}
+  .hero {
+    padding-bottom: 44px; /* room for the "current" badge */
+    text-align: left;
+  }
   .hero h1 {
     font-size: 26px;
   }
@@ -503,15 +582,16 @@ footer {
     max-width: 400px;
     width: 100%;
     justify-self: center;
+    height: min(315px, 78vw);
   }
-  /* .projects {
-    grid-template-columns: 1fr;
-  } */
   .section {
     margin-top: 95px;
   }
   .skill-cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .projects {
+    grid-template-columns: 1fr;
   }
   .about {
     gap: 25px;
@@ -519,19 +599,61 @@ footer {
   .about-art {
     min-height: 270px;
   }
+  .dot-grid-about-first {
+    right: auto;
+    left: 8px;
+    top: 12px;
+  }
+  .dot-grid-about-second {
+    right: 8px;
+    top: auto;
+    bottom: 8px;
+  }
   .contacts {
     gap: 20px;
   }
   .footer-grid {
     gap: 20px;
   }
+  .footer-grid-inner {
+    flex-direction: column;
+    gap: 24px;
+  }
   .quote {
     margin-top: 15px;
+    padding: 22px 24px;
+  }
+  .quote cite {
+    position: static;
+    display: inline-block;
+    margin-top: 16px;
   }
   .section-heading h2 {
     font-size: 24px;
   }
+  .person1 {
+    position: absolute;
+    width: min(299px, 60%);
+    height: auto;
+    aspect-ratio: 299 / 467;
+    right: 0;
+    bottom: 0;
+    filter: grayscale(0.55) contrast(1.15) brightness(0.9);
+    display: block;
+  }
+  .current {
+    font-size: 13px;
+    padding: 7px 10px;
+    left: 35px;
+  }
+    .shapes {
+    display: none;
+  }
+    .dot-grid {
+    visibility: hidden;
+  }
 }
+
 @media (max-width: 410px) {
   .skill-cards {
     grid-template-columns: 1fr;
@@ -546,82 +668,28 @@ footer {
   .footer-grid {
     display: block;
   }
-}
-
-
-/* -------------*/
-.projects {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  align-items: start;
-}
-.card {
-  border: 1px solid var(--muted);
-  display: flex;
-  flex-direction: column;
-}
-.card-top {
-  height: 6px;
-  background: var(--accent);
-}
-/* .project-one { background: var(--accent); }
-.project-two { background: linear-gradient(90deg, #5a1b86, #ed8b25); }
-.project-three { background: #a5ff82; } */
-
-.tags {
-  border-top: 1px solid var(--muted);
-  border-bottom: 1px solid var(--muted);
-  padding: 8px;
-  margin: 0;
-  font-size: 12px;
-}
-.card-body {
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.card-body p {
-  margin: 8px 0 16px;
-  font-size: 13px;
-  flex: 1;
-}
-
-.card-buttons {
-  display: flex;
-  gap: 8px;
-}
-.card-buttons .button {
-  padding: 8px 12px;
-  font-size: 13px;
-  flex: 1;
-  text-align: center;
-}
-.button.secondary {
-  border-color: var(--accent);
-  color: var(--muted);
-}
-.button.secondary:hover {
-  background: #c778dd22;
-  color: #fff;
-}
-
-.media a {
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
-/* .media a:hover {
-  color: var(--accent);
-} */
-.skill-cards h3 i {
-  color: var(--accent);
-  margin-right: 8px;
-  font-size: 14px;
-}
-.Message-Icon-Color a i {
-    color: var(--accent);
-  margin-right: 8px;
-  font-size: 14px;
+  .current {
+    font-size: 13px;
+    padding: 7px 10px;
+    left: 14px;
+  }
+  .card-buttons .button {
+    min-width: 100%;
+  }
+  .dot-grid {
+    visibility: hidden;
+  }
+  .person1 {
+    position: absolute;
+    width: min(299px, 60%);
+    height: auto;
+    aspect-ratio: 299 / 467;
+    right: 0;
+    bottom: 0;
+    filter: grayscale(0.55) contrast(1.15) brightness(0.9);
+    display: block;
+  }
+  .shapes {
+    display: none;
+  }
 }

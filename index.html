@@ -11,10 +11,7 @@
 </head>
 
 <body>
-  <!-- <div class="social-rail" aria-label="Social links">
-    <span></span><a href="#contacts" aria-label="Dribbble">◉</a><a href="#contacts" aria-label="GitHub">◈</a><a
-      href="#contacts" aria-label="Figma">△</a>
-  </div> -->
+
   <div class="social-rail" aria-label="Social links">
     <span></span>
     <a href="https://github.com/AnsariSalauddin" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
@@ -45,12 +42,13 @@
         <a class="button" href="#contacts"><i class="fa-regular fa-circle-user"></i> Contact me!!</a>
       </div>
       <div class="hero-art">
-        <div class="dot-grid"></div>
-        <div class="person" aria-hidden="true">✦</div>
+        <img class="person" src="images/Image.png" alt="Person wearing a black hoodie">
+        <!-- <div class="person" aria-hidden="true">✦</div> -->
         <div class="logo-box"><i></i></div>
         <div class="current">
           <span>●</span> Currently working on <a href="#works">Portfolio</a>
         </div>
+        <div class="dot-grid"></div>
       </div>
     </section>
     <section class="quote wrap">
@@ -60,7 +58,8 @@
     <section id="works" class="wrap section">
       <div class="section-heading">
         <h2><b>#</b>projects</h2>
-        <span></span><a href="#works">View all ~~&gt;</a>
+        <span></span>
+        <a href="Projects.html">View all ~~&gt;</a>
       </div>
       <div class="projects">
         <article class="card">
@@ -172,12 +171,16 @@
           Limited, contributing to backend development, RESTful APIs, database
           operations, and application enhancements.
         </p>
-        <a class="button" href="#contacts">Read more -&gt;</a>
+        <a class="button" href="#">Read more -&gt;</a>
       </div>
       <div class="about-art">
-        <div class="person small">✦</div>
-        <div class="dots"></div>
+        <div class="dot-grid-about-first"></div>
+        <img class="person1" src="images/profile1.png" alt="Person wearing a black hoodie">
+        <!-- <div class="person small">✦</div>
+        <div class="dots"></div> -->
+        <div class="dot-grid-about-second"></div>
       </div>
+
     </section>
     <section id="contacts" class="wrap section contacts">
       <div>
@@ -211,22 +214,27 @@
   </main>
   <footer>
     <div class="wrap footer-grid">
-      <div>
-        <a class="brand" href="#home"><i></i>Salauddin</a>
-        <!-- <a class="email" href="mailto:salauddinansari07457@gmail.com">salauddinansari07457@gmail.com</a> -->
-        <p>Java backend developer and front-end developer</p>
-      </div>
+      <div class="footer-grid-inner">
+        <div>
+          <a class="brand" href="#home"><i></i>Salauddin</a>
+          <!-- <a class="email" href="mailto:salauddinansari07457@gmail.com">salauddinansari07457@gmail.com</a> -->
+          <p>Java backend developer and front-end developer</p>
+        </div>
 
-      <div>
-        <h3>Social Media</h3>
-        <p class="media" style="font-size: large;">
-          <a href="https://github.com/AnsariSalauddin" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-              class="fa-brands fa-github"></i></a>&nbsp;
-          <a href="https://linkedin.com/in/salauddin-ansari-560468238" target="_blank" rel="noopener noreferrer"
-            aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        </p>
+        <div>
+          <h3>Social Media</h3>
+          <p class="media" style="font-size: large; margin: 10px;">
+            <a href="https://github.com/AnsariSalauddin" target="_blank" rel="noopener noreferrer"
+              aria-label="GitHub"><i class="fa-brands fa-github"></i></a>&nbsp;
+            <a href="https://linkedin.com/in/salauddin-ansari-560468238" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://linkedin.com/in/salauddin-ansari-560468238" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn"><i class="fa-brands fa-twitter"></i></a>
+          </p>
+        </div>
       </div>
       <p class="copyright">© Copyright 2026. Made by Salauddin</p>
+    </div>
   </footer>
   <script src="script.js"></script>
 </body>

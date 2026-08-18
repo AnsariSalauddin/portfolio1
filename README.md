@@ -1,4 +1,4 @@
-# Salauddin Portfolio
+# Elias Portfolio
 
 A responsive, static portfolio inspired by the supplied Figma Community design.
 
