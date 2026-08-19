@@ -121,7 +121,7 @@ nav a:hover {
   color: var(--accent);
 }
 p {
-  color: var(--muted);
+  /* color: var(--muted); */
   font-size: 15px;
 }
 .button {
@@ -381,6 +381,7 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  margin-top: 10px;
 }
 .footer-grid-inner {
   display: flex;
@@ -408,6 +409,7 @@ footer {
   text-align: center;
   margin: 42px 0 20px;
   font-size: 12px;
+  margin-top: 10px;
 }
 
 /* -------------- projects / cards -------------- */
@@ -457,10 +459,11 @@ footer {
   flex: 1;
   text-align: center;
   min-width: 110px;
+  
 }
 .button.secondary {
   border-color: var(--accent);
-  color: var(--muted);
+  color: var(--text);
 }
 .button.secondary:hover {
   background: #c778dd22;
@@ -618,6 +621,7 @@ footer {
   .footer-grid-inner {
     flex-direction: column;
     gap: 24px;
+    margin-top: -8px;
   }
   .quote {
     margin-top: 15px;
@@ -692,4 +696,92 @@ footer {
   .shapes {
     display: none;
   }
+}
+
+
+/* From Uiverse.io by D3OXY */
+.card {
+  position: relative;
+  width: 350px;
+  aspect-ratio: 16/9;
+  background-color: #1f232b;
+  border-radius: 10px;
+  border: 1px solid var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  /* background-color: #f2f2f2; */
+  background-color: var(#808080);
+  /* transform: rotateX(-90deg); */
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding-bottom: 10px;
+}
+
+
+.projectTitleOuter {
+  margin: auto;
+  font-size: x-large;
+  text-align: center;
+  color: var(--muted);
+
+}
+.card__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  /* color: var(--muted); */
+}
+
+
+.projectTitleOuter{
+  display: none;
+}
+
+.card__description {
+  margin: 10px 0 10px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.card__button {
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+}
+
+.secondary {
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
